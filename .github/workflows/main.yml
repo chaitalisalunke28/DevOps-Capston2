@@ -9,10 +9,25 @@ on:
 
 jobs:
   build:
-    runs-on: 24.04
+    runs-on: ubuntu-24.04
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
-      - name: Check out code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -25,8 +40,8 @@ jobs:
           python -m pip install --upgrade pip
           make install
 
-      - name: Lint code
+      - name: Lint with flake8
         run: flake8 service tests
 
-      - name: Run unit tests
+      - name: Run unit tests with nosetests
         run: nosetests
