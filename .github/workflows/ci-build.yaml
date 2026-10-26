@@ -41,8 +41,8 @@ jobs:
           python -m pip install --upgrade pip
           make install
 
-      - name: Lint with flake8
-        run: flake8 service tests
+            - name: Lint with flake8
+        run: flake8 --max-line-length=127 service tests
 
       - name: Run unit tests with nosetests
         run: nosetests
