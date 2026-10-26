@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python", "-m", "service"]
+CMD ["sh", "-c", "gunicorn --workers=1 --bind 0.0.0.0:${PORT:-8080} --log-level=info service:app"]
