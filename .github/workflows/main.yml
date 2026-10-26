@@ -29,9 +29,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Install dependencies
         run: |
+          apt-get update
+          apt-get install -y make gcc
           python -m pip install --upgrade pip
           make install
 
