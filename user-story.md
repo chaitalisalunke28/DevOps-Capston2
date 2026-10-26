@@ -1,19 +1,23 @@
-# User Stories
+# User Story Template
 
-As a user, I need to manage customer accounts so that I can maintain account information.
+## Title
+[Short description of the user story]
 
-## User Story Template
-
+## User Story
 As a [type of user],
 I need [some functionality],
-so that [some benefit].
+so that [some benefit or value].
 
-## Required User Stories
+## Acceptance Criteria
+- Given [initial context],
+  when [an action occurs],
+  then [the expected result].
+- Given [initial context],
+  when [an action occurs],
+  then [the expected result].
 
-1. Set up the development environment.
-2. Read an account.
-3. Update an account.
-4. Delete an account.
-5. List all accounts.
-6. Containerize the microservice using Docker.
-7. Deploy the Docker image to Kubernetes.
+## Priority
+[High / Medium / Low]
+
+## Estimate
+[Story points]
