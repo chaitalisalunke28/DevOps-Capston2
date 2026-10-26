@@ -2,14 +2,14 @@ name: CI Build
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
+    container: python:3.9-slim
 
     services:
       postgres:
@@ -28,12 +28,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.9"
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
